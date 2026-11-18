@@ -1,0 +1,153 @@
+/*
+ * Design tokens. Light theme by default, dark theme from the system preference.
+ * No JavaScript toggle, so the correct theme applies from the first paint.
+ * Text/background pairs meet WCAG 2.2 AA (4.5:1) in both themes.
+ */
+:root {
+	color-scheme: light dark;
+
+	--color-bg: #fbfaf7;
+	--color-surface: #ffffff;
+	--color-surface-muted: #f1efe9;
+	--color-text: #1c1f24;
+	--color-text-muted: #4f5660;
+	--color-border: #d9d5cc;
+	--color-accent: #1d6a57;
+	--color-accent-strong: #154f41;
+	--color-on-accent: #ffffff;
+	--color-focus: #1d6a57;
+	--color-success: #1f7a3a;
+	--color-error: #b3261e;
+
+	--font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+	--font-mono: ui-monospace, 'Cascadia Code', 'SFMono-Regular', Menlo, Consolas, monospace;
+
+	--space-1: 0.25rem;
+	--space-2: 0.5rem;
+	--space-3: 0.75rem;
+	--space-4: 1rem;
+	--space-6: 1.5rem;
+	--space-8: 2rem;
+	--space-12: 3rem;
+	--space-16: 4rem;
+
+	--radius: 0.5rem;
+	--content-width: 48rem;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-bg: #121417;
+		--color-surface: #1a1d22;
+		--color-surface-muted: #23272e;
+		--color-text: #e9e7e2;
+		--color-text-muted: #a9b0ba;
+		--color-border: #343a42;
+		--color-accent: #5fc9aa;
+		--color-accent-strong: #8adbc3;
+		--color-on-accent: #0d1a16;
+		--color-focus: #8adbc3;
+		--color-success: #6fd08c;
+		--color-error: #ff8a80;
+	}
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+	-webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+}
+
+// SvelteKit's mount point (src/app.html); styled here because the CSP forbids inline styles
+#app {
+	display: contents;
+}
+
+body {
+	margin: 0;
+	min-height: 100vh;
+	font-family: var(--font-sans);
+	font-size: 1.0625rem;
+	line-height: 1.6;
+	color: var(--color-text);
+	background: var(--color-bg);
+}
+
+h1,
+h2,
+h3,
+h4 {
+	line-height: 1.25;
+	margin: 0 0 var(--space-3);
+	text-wrap: balance;
+}
+
+h1 {
+	font-size: clamp(2rem, 1.4rem + 2.5vw, 2.75rem);
+}
+
+h2 {
+	font-size: 1.625rem;
+}
+
+h3 {
+	font-size: 1.1875rem;
+}
+
+p,
+ul,
+ol,
+dl,
+figure,
+blockquote {
+	margin: 0 0 var(--space-4);
+}
+
+a {
+	color: var(--color-accent);
+	text-underline-offset: 0.2em;
+
+	&:hover {
+		color: var(--color-accent-strong);
+	}
+}
+
+:focus-visible {
+	outline: 3px solid var(--color-focus);
+	outline-offset: 2px;
+	border-radius: 2px;
+}
+
+code {
+	font-family: var(--font-mono);
+	font-size: 0.9em;
+}
+
+img,
+svg {
+	max-width: 100%;
+	height: auto;
+}
+
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}

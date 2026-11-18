@@ -1,0 +1,13 @@
+# Binaries
+*.exe
+/backend
+/server
+
+# Test reports
+*.xml
+coverage.out
+
+# Env
+.env
+.env.*
+!.env.example

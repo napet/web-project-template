@@ -1,0 +1,7 @@
+// Sass aliases for the theme tokens defined in main.scss. They resolve to CSS
+// custom properties, so they follow the light/dark theme; Sass colour
+// functions (color.adjust etc.) cannot be applied to them.
+$body-background-color: var(--color-bg);
+$theme-color: var(--color-text);
+$secondary-color: var(--color-text-muted);
+$accent-color: var(--color-accent);
